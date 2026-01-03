@@ -1,0 +1,34 @@
+node_modules
+uploads
+
+.env
+*.log
+
+.vscode/*
+.DS_Store
+
+# Logs
+PDF_processor/logs
+PDF_processor/*.log
+PDF_processor/npm-debug.log*
+PDF_processor/yarn-debug.log*
+PDF_processor/yarn-error.log*
+PDF_processor/pnpm-debug.log*
+PDF_processor/lerna-debug.log*
+
+PDF_processor/node_modules
+PDF_processor/dist
+PDF_processor/dist-ssr
+PDF_processor/*.local
+PDF_processor/uploads
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
