@@ -8,6 +8,7 @@ app.use(express.json());
 
 const jobs= {};
 
+//for processing the uploaded files and returning a job id
 app.post("/process",upload.array('files'),(req,res) => {
     console.log("Recieved file:",req.files.length);
     const jobid = Date.now().toString();
@@ -31,6 +32,7 @@ app.post("/process",upload.array('files'),(req,res) => {
     res.json({jobid});
 });
 
+//for checking the status of the job using job id
 app.get("/status/:id",(req,res) => {
     const job = jobs[req.params.id];
     if (!job) {return res.status(404).json({ error:"Job not found"});}
