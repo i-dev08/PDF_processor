@@ -8,6 +8,7 @@ function App() {
   const [result_url,setResultUrl] = useState("");
 
  
+  //function for submitting the job
   async function submitJob() {
     const formData = new FormData();
     formData.append("jobType",task);
@@ -16,6 +17,7 @@ function App() {
       formData.append("files",files[i]);
     }
 
+    //to get the jobid
     try {
       const res = await fetch("http://localhost:3000/process",{
         method:"POST",
@@ -31,6 +33,7 @@ function App() {
     }
   }
 
+  // when new job button is clicked
   function newJob() {
     setTask("");
     setFiles([]);
@@ -38,6 +41,7 @@ function App() {
     setStatus("");
   }
 
+  //allowing only pdf files to be uploaded
   function checkFile(e) {
     const upFiles = Array.from(e.target.files);
 
@@ -50,11 +54,13 @@ function App() {
     setFiles(prev => [...prev,...pdf]);
   }
 
+  //function to remove a file from the list
   function removeFile(i) {
     setFiles((prevFiles) =>
     prevFiles.filter((_,index) => index!==i));
   }
 
+  //polling the status of the job
   useEffect(() => {
     if (!jobid) return;
 
